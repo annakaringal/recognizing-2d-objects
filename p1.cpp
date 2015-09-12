@@ -30,6 +30,8 @@ int main(int argc, const char * argv[]) {
       }
     }
 
+    read_img.close();
+
 
     return 0;
     
