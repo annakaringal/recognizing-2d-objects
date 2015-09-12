@@ -1,3 +1,6 @@
+#ifndef PGM_IMG
+#define PGM_IMG
+
 #include <iostream>
 #include <string.h>
 
@@ -30,3 +33,5 @@ private:
   void SaveToFile(string file_name);
 
 };
+
+#endif
