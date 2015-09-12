@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "pgm.h"
+using namespace std;
 
 bool is_valid_number(const char * str){
   cout << "checking " << str << endl;
