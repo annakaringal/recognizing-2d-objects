@@ -11,7 +11,7 @@ int main(int argc, const char * argv[]) {
     }
     // TODO: Check var types
     string input_img_name = argv[1];
-    int threshold = argv[2];
+    string threshold = argv[2];
     string output_img_name = argv[3];
 
     // Open image file
@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
 
     if (read_img.is_open()){
       string line;
-      while(getline(readf, line)){
+      while(getline(read_img, line)){
         cout << line << endl;
       }
     }
