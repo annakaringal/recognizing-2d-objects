@@ -61,18 +61,17 @@ PGMImg parseImage(ifstream &readf){
   // Get max gray
   getline(readf, line);
 
-  try{
+  string header_attrs[3] = {line, width_str, height_str};
+
+  if (is_valid_number(header_attrs)){
     max_gray = stoi(line);
     width = stoi(width_str);
     height = stoi(height_str);
-  } catch (invalid_argument ia){
-    cerr << "ERROR: Invalid image headers (" << ia.what() << ")"<< endl;
+  } else {
+    // TODO: Raise exception
+    cout << "INVALID" << endl;
     exit(-1);
   }
-
-  cout << "width: " << width << endl;
-  cout << "height: " << height << endl;
-  cout << "max_gray: " << max_gray << endl;
 
   PGMImg img(width, height, max_gray);
 
