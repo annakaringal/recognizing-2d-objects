@@ -12,9 +12,7 @@ public:
 
   PGMImg(int w=0, int h=0, int g=0) :
     width(w), height(h), max_gray(g){};
-
-  ~PGMImg();
-
+    
   int get_width(){ return width; };
 
   int get_height(){ return height; };
