@@ -81,3 +81,9 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+
+## Project specific files
+p1 
+p2
+p3
+p4
