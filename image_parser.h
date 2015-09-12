@@ -1,9 +1,6 @@
 #ifndef IMAGE_PARSER
 #define IMAGE_PARSER
 
-#include <iostream>
-#include <fstream>
-
 #include "pgm.h"
 
 using namespace std;
