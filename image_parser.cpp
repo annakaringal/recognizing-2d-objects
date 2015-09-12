@@ -18,6 +18,24 @@ bool is_valid_number(const char * str){
   return true;
 }
 
+bool is_valid_number(const string str){
+  for (int i=0; i < str.length(); i++){
+    if (!isdigit(str[i]) && str[i] != '.') {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+bool is_valid_number(const string str_arr[]){
+  for (int i=0; i < str_arr->length(); i++){
+    if (!is_valid_number(str_arr[i])){ return false; }
+  }
+
+  return true;
+}
+
 PGMImg parseImage(ifstream &readf){
   int width, height, max_gray;
   string line, width_str, height_str;
