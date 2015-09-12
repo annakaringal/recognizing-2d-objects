@@ -26,12 +26,7 @@ int main(int argc, const char * argv[]) {
     // Open image file
     ifstream read_img; 
     read_img.open(input_img_name.c_str());
-
-    cout << "threshold: " << threshold << endl;
-    cout << "inptu: " << input_img_name << endl;
-    cout << "ouput: " << output_img_name << endl;
-
-
+    
     if (read_img.fail()){
       cerr << "ERROR: Invalid file. Please check file name and try again." << endl;
       exit(-1);
