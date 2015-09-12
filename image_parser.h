@@ -10,6 +10,6 @@ using namespace std;
 
 bool is_valid_number(const char * str);
 
-PGMImg parseImage(istream &readf);
+PGMImg parseImage(ifstream &readf);
 
 #endif
