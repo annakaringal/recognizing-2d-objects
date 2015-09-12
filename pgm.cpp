@@ -4,7 +4,3 @@
 #include "pgm.h"
 
 using namespace std;
-
-PGMImg::PGMImg(string file_name){
-
-}
