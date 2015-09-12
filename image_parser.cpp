@@ -10,21 +10,15 @@ using namespace std;
 
 bool is_valid_number(const char * str){
   for (int i=0; i < strlen(str); i++){
-    if (!isdigit(str[i]) && str[i] != '.') {
-      return false;
-    }
+    if (!isdigit(str[i]) && str[i] != '.') { return false; }
   }
-
   return true;
 }
 
 bool is_valid_number(const string str){
   for (int i=0; i < str.length(); i++){
-    if (!isdigit(str[i]) && str[i] != '.') {
-      return false;
-    }
+    if (!isdigit(str[i]) && str[i] != '.') { return false; }
   }
-
   return true;
 }
 
@@ -32,7 +26,6 @@ bool is_valid_number(const string str_arr[]){
   for (int i=0; i < str_arr->length(); i++){
     if (!is_valid_number(str_arr[i])){ return false; }
   }
-
   return true;
 }
 
@@ -62,7 +55,6 @@ PGMImg parseImage(ifstream &readf){
   getline(readf, line);
 
   string header_attrs[3] = {line, width_str, height_str};
-
   if (is_valid_number(header_attrs)){
     max_gray = stoi(line);
     width = stoi(width_str);

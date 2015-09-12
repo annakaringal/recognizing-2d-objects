@@ -14,9 +14,7 @@ public:
     width(w), height(h), max_gray(g){};
     
   int get_width(){ return width; };
-
   int get_height(){ return height; };
-
   int get_max_gray(){ return max_gray; };
 
   void save(string file_name) { SaveToFile(file_name); };
