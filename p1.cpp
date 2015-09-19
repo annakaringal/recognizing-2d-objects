@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 #include "BinaryImage.h"
 #include "pgm/Image.h"
