@@ -24,18 +24,19 @@ int main(int argc, const char * argv[]) {
     }
 
     // Read image from input file, convert to binary and write to output file
-    Image input_img, binary_img;
-    Image* input_img_ptr = &input_img;
-    Image* binary_img_ptr = &binary_img;
+    Image* input_img;
+    Image* binary_img;
+    input_img = new Image;
+    binary_img = new Image;
 
-    if (readImage(input_img_ptr, input_img_fname) < 0) {
+    if (readImage(input_img, input_img_fname) < 0) {
       cerr << "ERROR: Something went wrong reading the input image" << endl;
       exit(-1);
     }
 
-    convertToBinary(input_img_ptr, binary_img_ptr, threshold);
+    convertToBinary(input_img, binary_img, threshold);
 
-    if (writeImage(binary_img_ptr, output_img_fname)){
+    if (writeImage(binary_img, output_img_fname)){
       cerr << "ERROR: Something went wrong writing the output image" << endl;
       exit(-1);
     }
