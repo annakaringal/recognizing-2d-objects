@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string.h>
 
-#include "functions.h"
+#include "BinaryImage.h"
 #include "pgm/Image.h"
 
 using namespace std;
