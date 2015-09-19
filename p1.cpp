@@ -25,13 +25,14 @@ int main(int argc, const char * argv[]) {
 
     Image input_img, binary_img;
     Image* input_img_ptr = &input_img;
+    Image* binary_img_ptr = &binary_img;
 
     if (readImage(input_img_ptr, input_img_fname) < 0) {
       cerr << "ERROR: Something went wrong reading the input image" << endl;
       exit(-1);
     }
 
-    ConvertToBinary(input_img, binary_img);
+    ConvertToBinary(input_img_ptr, binary_img_ptr, threshold);
 
     writeImage()
 
