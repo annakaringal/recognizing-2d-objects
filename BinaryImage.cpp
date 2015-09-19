@@ -18,7 +18,7 @@ bool isValidNumber(const char * str){
 
 int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
   // Check if threshold is valid
-  if (threshold > binary_img.getNColors() || threshold < 0) { return -1; }
+  if (threshold > greyscale_img->getColors() || threshold < 0) { return -1; }
 
   // Set rows & cols of binary_img
   int rows = greyscale_img->getNRows();
