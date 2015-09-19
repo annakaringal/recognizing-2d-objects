@@ -2,14 +2,24 @@
 #include <string.h>
 
 #include "functions.h"
+#include "pgm/Image.h"
 
 using namespace std;
 
-bool is_valid_number(const char * str){
+bool isValidNumber(const char * str){
   for (int i=0; i < strlen(str); i++){
     if (!isdigit(str[i]) && str[i] != '.') {
       return false;
     }
   }
   return true;
+}
+
+int convertToBinary(Image* greyscale_img, Image* binary_img){
+  int rows = greyscale_img.getNRows();
+  int cols = greyscale_img.getNCols();
+  binary_img->setSize(rows, cols);
+
+
+
 }
