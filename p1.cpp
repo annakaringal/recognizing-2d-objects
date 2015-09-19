@@ -13,8 +13,9 @@ int main(int argc, const char * argv[]) {
 
     const char* input_img_fname = argv[1];
     const char* output_img_fname = argv[3];
-    int threshold;
 
+    // Check if threshold is valid int and set to variable
+    int threshold;
     if (isValidNumber(argv[2])){
       threshold = atoi(argv[2]);
     } else {
@@ -22,6 +23,7 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
+    // Read image from input file, convert to binary and write to output file
     Image input_img, binary_img;
     Image* input_img_ptr = &input_img;
     Image* binary_img_ptr = &binary_img;
