@@ -2,18 +2,18 @@
 #include <fstream>
 
 #include "functions.h"
+#include "pgm/Image.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-
     if (argc != 4) {
       cerr << "ERROR: Invalid number of arguments." << endl;
       exit(-1);
     }
 
-    string input_img_name = argv[1];
-    string output_img_name = argv[3];
+    const char* input_img_fname = argv[1];
+    const char* output_img_fname = argv[3];
     int threshold;
 
     if (is_valid_number(argv[2])){
@@ -23,25 +23,14 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
-    // Open image file
-    ifstream read_img; 
-    read_img.open(input_img_name.c_str());
-    
-    if (read_img.fail()){
-      cerr << "ERROR: Invalid file. Please check file name and try again." << endl;
+    Image input_img;
+    Image* input_img_ptr = &input_img;
+
+    if (readImage(input_img_ptr, input_img_fname) < 0) {
+      cerr << "ERROR: Something went wrong reading the input image" << endl;
       exit(-1);
     }
 
-    if (read_img.is_open()){
-      string line;
-      while(getline(read_img, line)){
-        // cout << line << endl;
-      }
-    }
-
-    read_img.close();
-
 
     return 0;
-    
 }
