@@ -1,10 +1,10 @@
-#include "DisjSets.h"
+#include "DisjointSet.h"
 
 /**
  * Construct the disjoint sets object.
  * numElements is the initial number of disjoint sets.
  */
-DisjSets::DisjSets( int numElements ) : s{ numElements, -1 }
+DisjointSet::DisjointSet( int numElements ) : s{ numElements, -1 }
 {
 }
 
@@ -15,7 +15,7 @@ DisjSets::DisjSets( int numElements ) : s{ numElements, -1 }
  * root1 is the root of set 1.
  * root2 is the root of set 2.
  */
-void DisjSets::unionSets( int root1, int root2 )
+void DisjointSet::unionSets( int root1, int root2 )
 {
     if( s[ root2 ] < s[ root1 ] )  // root2 is deeper
         s[ root1 ] = root2;        // Make root2 new root
@@ -33,7 +33,7 @@ void DisjSets::unionSets( int root1, int root2 )
  * Error checks omitted again for simplicity.
  * Return the set containing x.
  */
-int DisjSets::find( int x ) const
+int DisjointSet::find( int x ) const
 {
     if( s[ x ] < 0 )
         return x;
@@ -47,7 +47,7 @@ int DisjSets::find( int x ) const
  * Error checks omitted again for simplicity.
  * Return the set containing x.
  */
-int DisjSets::find( int x )
+int DisjointSet::find( int x )
 {
     if( s[ x ] < 0 )
         return x;

@@ -1,5 +1,5 @@
-#ifndef DISJ_SETS_H
-#define DISJ_SETS_H
+#ifndef DISJOINT_SET_H
+#define DISJOINT_SET_H
 
 // DisjSets class
 //
@@ -19,10 +19,10 @@ using namespace std;
  * Use union by rank and path compression.
  * Elements in the set are numbered starting at 0.
  */
-class DisjSets
+class DisjointSet
 {
   public:
-    explicit DisjSets( int numElements );
+    explicit DisjointSet( int numElements );
 
     int find( int x ) const;
     int find( int x );
