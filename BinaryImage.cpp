@@ -3,6 +3,7 @@
 
 #include "BinaryImage.h"
 #include "pgm/Image.h"
+#include "disjsets/DisjointSet.h"
 
 using namespace std;
 
@@ -51,7 +52,9 @@ int labelObjects(Image* binary_img, Image* labeled_img){
   int num_objects = 1;
   labeled_img->setSize(rows, cols);
 
-  // Equivalency table
+  // Equivalency table of worst case size
+  // (every pixel is a different object)
+  DisjointSet equivalent_labels(rows*cols);
 
   // First pass
   for (int i=0; i<rows; i++){
@@ -89,10 +92,11 @@ int labelObjects(Image* binary_img, Image* labeled_img){
             labeled_img->setPixel(i,j,B);
 
           // B and C are both labeled but label B != label C
-          // B and C's labels are equivalent, mark in equivalency table
+          // B and C's labels are equivalent, mark as equivalent
           // current pixel gets B's label
           } else {
             labeled_img->setPixel(i,j,B);
+            equivalent_labels.unionSets(B,C);
           }
         }
       }
