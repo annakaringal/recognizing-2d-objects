@@ -15,7 +15,7 @@ bool isValidNumber(const char * str){
   return true;
 }
 
-int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
+void convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
   int rows = greyscale_img->getNRows();
   int cols = greyscale_img->getNCols();
   binary_img->setSize(rows, cols);
