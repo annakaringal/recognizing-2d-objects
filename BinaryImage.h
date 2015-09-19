@@ -1,3 +1,6 @@
+#ifndef BINARY_IMAGE_H
+#define BINARY_IMAGE_H
+
 #include <iostream>
 
 #include "pgm/Image.h"
@@ -16,3 +19,5 @@ bool isValidNumber(const char* str);
 int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold);
 
 int labelObjects(Image* binary_img, Image* labeled_img);
+
+#endif
