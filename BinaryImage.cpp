@@ -24,6 +24,7 @@ int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
   int rows = greyscale_img->getNRows();
   int cols = greyscale_img->getNCols();
   binary_img->setSize(rows, cols);
+  binary_img->setColors(1);
 
   // Set colors of binary_img based on given threshold
   for (int i=0; i<rows; i++){
