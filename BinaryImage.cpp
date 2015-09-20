@@ -106,6 +106,10 @@ int labelObjects(Image* binary_img, Image* labeled_img){
   // Second pass: resolve equivalences
   for (int i=0; i<rows; i++){
     for (int j=0; j<cols; j++){
+      int cur = labeled_img->getPixel(i,j);
+      if (cur > 0){
+        labeled_img->setPixel(i,j,equivalent_labels.find(cur));
+      }
     }
   }
 
