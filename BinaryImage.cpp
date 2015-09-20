@@ -67,7 +67,7 @@ int labelObjects(Image* binary_img, Image* labeled_img){
         // Look at already labeled neighboring pixels.
 
         // D has a label, current pixel gets D's label
-        int D = labeled_img->getPixel(i-1,j-1)
+        int D = labeled_img->getPixel(i-1,j-1);
         if (D > 0){
           labeled_img->setPixel(i,j,D);
         } else {
@@ -77,7 +77,7 @@ int labelObjects(Image* binary_img, Image* labeled_img){
           // B, C and D are all background. New object!
           if (B == 0 && C == 0){
             num_objects++;
-            labeled_img->setPixel(i,j,num_objects)
+            labeled_img->setPixel(i,j,num_objects);
 
           // Only C has a label, current pixel gets C's label
           } else if (C > 0 && B == 0) {
