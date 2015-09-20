@@ -22,7 +22,7 @@ public:
     ResolveEquivalences(labeled_img);
 
     // Set number of objects for labeled_img
-    labeled_img->setColors(getNumObjects());
+    labeled_img->setColors(equivalencies.size());
   }
 
   int getNumObjects() {return num_objects;}
