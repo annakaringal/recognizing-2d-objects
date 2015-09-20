@@ -4,7 +4,7 @@
  * Construct the disjoint sets object.
  * numElements is the initial number of disjoint sets.
  */
-DisjointSet::DisjointSet( int numElements ) : s{ numElements, -1 }
+DisjointSet::DisjointSet( int numElements ) : s ( numElements, -1 )
 {
 }
 
