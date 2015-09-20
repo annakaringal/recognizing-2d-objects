@@ -56,8 +56,8 @@ void ObjectLabeler::ScanAndLabel(Image* binary_img, Image* labeled_img){
 
 void ObjectLabeler::ResolveEquivalences(Image* labeled_img){
   // Scan each pixel
-  for (int i=0; i < labeled_img->getNRows()){
-    for (int j=0; j < labeled_img->getNCols()){
+  for (int i=0; i < labeled_img->getNRows(); i++){
+    for (int j=0; j < labeled_img->getNCols(); j++){
       // If pixel is not background and label has equivalency, 
       // set to lowest equivalency
       int cur_pix = labeled_img->getPixel(i,j);
