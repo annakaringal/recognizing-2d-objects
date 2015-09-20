@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
-    ObjectLabeler labeler();
+    ObjectLabeler labeler;
     labeler.labelObjects(input_img, labeled_img);
 
     if (writeImage(labeled_img, output_img_fname)){
