@@ -40,7 +40,7 @@ private:
 
   int getLowestEquivalentLabel(int label);
 
-  int hasEquivalenctLabel(int label);
+  int hasEquivalentLabel(int label);
 };
 
 #endif
