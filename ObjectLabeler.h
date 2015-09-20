@@ -10,11 +10,9 @@
 using namespace std;
 
 class ObjectLabeler{
+
 public:
-
   ObjectLabeler(){ num_objects = 0; }
-
-  ~ObjectLabeler();
 
   void labelObjects(Image* binary_img, Image* labeled_img){
     // First pass
