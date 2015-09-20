@@ -26,7 +26,7 @@ class ObjectLabeler{
     labeled_img->setColors(getNumObjects());
   }
 
-  int getNumObjects() {return num_objects};
+  int getNumObjects() {return num_objects;}
 
 private:
   vector <set<int>> equivalencies;
