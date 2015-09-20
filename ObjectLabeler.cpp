@@ -80,7 +80,9 @@ void ObjectLabeler::AddToEquivalencyTable(int labelA, int labelB){
   
   // Both labels aren't in table yet, add as new equivalency
   } else {
-    set<int> equivalent_labels = {labelA, labelB};
+    set<int> equivalent_labels;
+    equivalent_labels.insert(labelA);
+    equivalent_labels.insert(labelB);
     equivalencies.push_back(equivalent_labels);
   }
 
