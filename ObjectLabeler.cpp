@@ -6,6 +6,7 @@ void ObjectLabeller::ScanAndLabel(Image* binary_img, Image* labeled_img){
   int cols = binary_img->getNCols();
   labeled_img->setSize(rows, cols);
 
+  // Scan each pixel
   for (int i=0; i<rows; i++){
     for (int j=0; j<cols; j++){
       // If pixel is the background, label as background.
@@ -54,24 +55,30 @@ void ObjectLabeller::ScanAndLabel(Image* binary_img, Image* labeled_img){
 }
 
 void ObjectLabeler::ResolveEquivalences(Image* labeled_img){
+  // Scan each pixel
   for (int i=0; i < labeled_img->getNRows()){
     for (int j=0; j < labeled_img->getNCols()){
+      // If pixel is not background and label has equivalency, 
+      // set to lowest equivalency
       int cur_pix = labeled_img->getPixel();
-      // If pixel is not background, set to lowest equivalent label
       if (cur_pix > 0){
-        labeled_img->setPixel(i,j, getLowestEquivalentLabel(cur_pix));
+        int label = getLowestEquivalentLabel(cur_pix);
+        if (label > 0){
+          labeled_img->setPixel(i,j, label);
+        }
       }
     }
   }
 }
 
 void ObjectLabeler::AddToEquivalencyTable(int labelA, int labelB){
-
+  // If either label exists, add the other label to the same set
   if (hasEquivalentLabel(labelA) > 0){
-
+    equivalencies[hasEquivalentLabel(labelA)].insert(labelB);
   } else if (hasEquivalentLabel(labelB) > 0){
-    
-
+    equivalencies[hasEquivalentLabel(labelB)].insert(labelA);
+  
+  // Both labels aren't in table yet, add as new equivalency
   } else {
     set<int> equivalent_labels = {labelA, labelB};
     equivalencies.push_back(equivalent_labels);
