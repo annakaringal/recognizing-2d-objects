@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "BinaryImage.h"
+#include "ObjectLabeler.h"
 #include "pgm/Image.h"
 
 using namespace std;
@@ -25,7 +25,8 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
-    labelObjects(input_img, labeled_img);
+    ObjectLabeler labeler();
+    labeler.labelObjects(input_img, labeled_img);
 
     if (writeImage(labeled_img, output_img_fname)){
       cerr << "ERROR: Something went wrong writing the output image" << endl;
