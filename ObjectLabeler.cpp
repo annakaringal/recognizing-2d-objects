@@ -87,18 +87,28 @@ void ObjectLabeler::AddToEquivalencyTable(int labelA, int labelB){
 }
 
 int ObjectLabeler::hasEquivalentLabel(int label){
+  // Return -1 if no equivalencies in table
+  if (equivalencies.empty()) { return -1; }
+
   // Check every entry in equivalencies table
   for (int i=0; i < equivalencies.size(); i++){
-
     // If entry contains label, return index of entry
     if (equivalencies[i].find(label) != equivalencies[i].end()){
       return i;
     }
   }
-
   // Label not found
   return -1;
 }
 
-
+int ObjectLabeler::getLowestEquivalentLabel(int label){
+  // Return -1 if no label is not found in the equivalency table
+  // Else return the lowest equivalent label
+  int equivalency = hasEquivalentLabel(label);
+  if (equivalency < 0) {
+    return -1;
+  } else {
+    return *equivalencies[equivalency].begin();
+  }
+}
 
