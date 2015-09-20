@@ -1,6 +1,6 @@
 #include "ObjectLabeler.h"
 
-void ObjectLabeller::ScanAndLabel(Image* binary_img, Image* labeled_img){
+void ObjectLabeler::ScanAndLabel(Image* binary_img, Image* labeled_img){
   // Get and set num of rows & cols
   int rows = binary_img->getNRows();
   int cols = binary_img->getNCols();
