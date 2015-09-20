@@ -11,7 +11,7 @@ using namespace std;
 
 class ObjectLabeler{
 
-  ObjectLabeler();
+  ObjectLabeler(){ num_objects = 0; }
 
   ~ObjectLabeler();
 
