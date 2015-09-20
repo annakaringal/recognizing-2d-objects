@@ -10,6 +10,7 @@
 using namespace std;
 
 class ObjectLabeler{
+public:
 
   ObjectLabeler(){ num_objects = 0; }
 
@@ -29,7 +30,7 @@ class ObjectLabeler{
   int getNumObjects() {return num_objects;}
 
 private:
-  vector <set<int>> equivalencies;
+  vector < set<int> > equivalencies;
   int num_objects;
 
   void ScanAndLabel(Image* binary_img, Image* labeled_img);
