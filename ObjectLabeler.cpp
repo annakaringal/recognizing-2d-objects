@@ -72,18 +72,33 @@ void ObjectLabeler::ResolveEquivalences(Image* labeled_img){
 }
 
 void ObjectLabeler::AddToEquivalencyTable(int labelA, int labelB){
-  // If either label exists, add the other label to the same set
-  if (hasEquivalentLabel(labelA) > 0){
-    equivalencies[hasEquivalentLabel(labelA)].insert(labelB);
-  } else if (hasEquivalentLabel(labelB) > 0){
-    equivalencies[hasEquivalentLabel(labelB)].insert(labelA);
-  
+  int A = hasEquivalentLabel(labelA);
+  int B = hasEquivalentLabel(labelB);
+
+  // If one of the label exists, add the other label to the same set
+  if (A >= 0 && B < 0){
+    equivalencies[A].insert(labelB);
+  } else if (B >= 0 && A < 0){
+    equivalencies[B].insert(labelA);
+
   // Both labels aren't in table yet, add as new equivalency
-  } else {
+  } else if (A < 0 && B < 0){
     set<int> equivalent_labels;
     equivalent_labels.insert(labelA);
     equivalent_labels.insert(labelB);
     equivalencies.push_back(equivalent_labels);
+  
+  // Both labels are in table: merge sets into lowest set, 
+  // delete highest set
+  } else if (A >= 0 && B >= 0 && A != B){
+    int low = (A < B ? A : B);
+    int high = (A < B ? B : A);
+    equivalencies[low].insert(equivalencies[high].begin(), equivalencies[high].end());
+    equivalencies.erase(equivalencies.begin() + high);
+
+  // Both labels are already in same equivalency sset
+  } else {
+    // Do nothing
   }
 
 }
