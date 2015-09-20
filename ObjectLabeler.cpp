@@ -60,7 +60,7 @@ void ObjectLabeler::ResolveEquivalences(Image* labeled_img){
     for (int j=0; j < labeled_img->getNCols()){
       // If pixel is not background and label has equivalency, 
       // set to lowest equivalency
-      int cur_pix = labeled_img->getPixel();
+      int cur_pix = labeled_img->getPixel(i,j);
       if (cur_pix > 0){
         int label = getLowestEquivalentLabel(cur_pix);
         if (label > 0){
