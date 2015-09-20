@@ -37,7 +37,7 @@ private:
 
   void AddToEquivalencyTable(int labelA, int labelB);
 
-  int getLowestEquivalentLabel(int label);
+  int getEquivalentLabel(int label);
 
   int hasEquivalentLabel(int label);
 };

@@ -62,7 +62,7 @@ void ObjectLabeler::ResolveEquivalences(Image* labeled_img){
       // set to lowest equivalency
       int cur_pix = labeled_img->getPixel(i,j);
       if (cur_pix > 0){
-        int label = getLowestEquivalentLabel(cur_pix);
+        int label = getEquivalentLabel(cur_pix);
         if (label > 0){
           labeled_img->setPixel(i,j, label);
         }
@@ -118,14 +118,14 @@ int ObjectLabeler::hasEquivalentLabel(int label){
   return -1;
 }
 
-int ObjectLabeler::getLowestEquivalentLabel(int label){
+int ObjectLabeler::getEquivalentLabel(int label){
   // Return -1 if no label is not found in the equivalency table
-  // Else return the lowest equivalent label
+  // Else return number of entry in equivalency table
   int equivalency = hasEquivalentLabel(label);
   if (equivalency < 0) {
     return -1;
   } else {
-    return *equivalencies[equivalency].begin();
+    return equivalency;
   }
 }
 
