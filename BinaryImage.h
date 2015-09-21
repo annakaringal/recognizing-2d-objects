@@ -18,6 +18,4 @@ bool isValidNumber(const char* str);
 // Returns 0 if OK, else returns -1 if something went wrong
 int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold);
 
-int labelObjects(Image* binary_img, Image* labeled_img);
-
 #endif
