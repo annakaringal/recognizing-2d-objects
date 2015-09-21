@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
     // Draw lines for each object
 
     // Write output image to file
-    if (writeImage(output_img, output_img_fname)){
+    if (writeImage(output_img, output_img_fname) < 0){
       cerr << "ERROR: Something went wrong writing the output image" << endl;
       exit(-1);
     }
