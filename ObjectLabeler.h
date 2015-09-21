@@ -13,10 +13,10 @@ class ObjectLabeler{
 
 public:
   ObjectLabeler(){
-    num_objects = 0;
     // initialize equivalencies with empty set so labels start at 1 not 0
     set<int> empty_set;
     equivalencies.push_back(empty_set);
+    label_count = 0;
   }
 
   void labelObjects(Image* binary_img, Image* labeled_img){
@@ -34,6 +34,7 @@ public:
 
 private:
   vector < set<int> > equivalencies;
+  int label_count;
 
   int calcNumObjects();
 

@@ -30,8 +30,8 @@ void ObjectLabeler::ScanAndLabel(Image* binary_img, Image* labeled_img){
 
           // B, C and D are all background. New object!
           if (B == 0 && C == 0){
-            num_objects++;
-            labeled_img->setPixel(i,j,num_objects);
+            label_count++;
+            labeled_img->setPixel(i,j,label_count);
 
           // Only C has a label, current pixel gets C's label
           } else if (C > 0 && B == 0) {
