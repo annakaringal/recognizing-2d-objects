@@ -27,14 +27,15 @@ public:
     ResolveEquivalences(labeled_img);
 
     // Set number of objects for labeled_img
-    labeled_img->setColors(equivalencies.size());
+    labeled_img->setColors(getNumObjects());
   }
 
-  int getNumObjects() {return num_objects;}
+  int getNumObjects() {return calcNumObjects();}
 
 private:
   vector < set<int> > equivalencies;
-  int num_objects;
+
+  int calcNumObjects();
 
   void ScanAndLabel(Image* binary_img, Image* labeled_img);
 

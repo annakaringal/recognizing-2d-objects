@@ -1,5 +1,9 @@
 #include "ObjectLabeler.h"
 
+int ObjectLabeler::calcNumObjects(){
+  return equivalencies.size() - 1;
+}
+
 void ObjectLabeler::ScanAndLabel(Image* binary_img, Image* labeled_img){
   // Get and set num of rows & cols
   int rows = binary_img->getNRows();
