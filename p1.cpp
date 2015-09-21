@@ -36,7 +36,7 @@ int main(int argc, const char * argv[]) {
 
     convertToBinary(input_img, binary_img, threshold);
 
-    if (writeImage(binary_img, output_img_fname)){
+    if (writeImage(binary_img, output_img_fname) < 0){
       cerr << "ERROR: Something went wrong writing the output image" << endl;
       exit(-1);
     }

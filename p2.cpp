@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
     ObjectLabeler labeler;
     labeler.labelObjects(input_img, labeled_img);
 
-    if (writeImage(labeled_img, output_img_fname)){
+    if (writeImage(labeled_img, output_img_fname) < 0){
       cerr << "ERROR: Something went wrong writing the output image" << endl;
       exit(-1);
     }
