@@ -23,13 +23,13 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
-    // Calculate properties of image objects and write database to file
+    // Generate database for image objects and write database to file
     ImageObjectDatabase iodb(input_img);
-    iodb.calculatePosition();
-    iodb.calculateMomentofInertia();
-    iodb.calculateOrientation();
-    iodb.calculateArea();
-    iodb.writeDatabase(output_db_fname);
+
+    if (iodb.writeDatabase(output_db_fname) < 0){
+      cerr << "ERROR: Something went wrong writing the output database" << endl;
+      exit(-1);
+    }
 
     // Create output image as copy of input image
     Image* output_img(input_img);
