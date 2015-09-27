@@ -11,7 +11,7 @@ void Object::updateXYProperties(int x, int y){
 
 pair<float,float> Object::calculateCenter(){
   centerRow = xSum / area;
-  centerCol = yXum / area;
+  centerCol = ySum / area;
   return pair<float,float> (centerRow, centerCol);
 }
 
@@ -27,8 +27,8 @@ void Object::calculateOrientation(){
   }
   max_angle = (PI / 2) + min_angle;
 
-  min_moment = (a*sin(min_angle)*sin(min_angle)) - (b*sin(min_angle)*cos(min_angle)) + (c*cos(min_angle)*cos(min_angle))
-  max_moment = (a*sin(max_angle)*sin(max_angle)) - (b*sin(max_angle)*cos(max_angle)) + (c*cos(max_angle)*cos(max_angle))
+  min_moment = (a*sin(min_angle)*sin(min_angle)) - (b*sin(min_angle)*cos(min_angle)) + (c*cos(min_angle)*cos(min_angle));
+  max_moment = (a*sin(max_angle)*sin(max_angle)) - (b*sin(max_angle)*cos(max_angle)) + (c*cos(max_angle)*cos(max_angle));
 
   roundness = min_moment / max_moment;
 
