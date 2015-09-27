@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
 
     // Check if threshold is valid int and set to variable
     int threshold;
-    if (isValidNumber(argv[2])){
+    if (isInt(argv[2])){
       threshold = atoi(argv[2]);
     } else {
       cerr << "ERROR: Invalid threshold number." << endl;
