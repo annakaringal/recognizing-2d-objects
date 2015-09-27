@@ -40,9 +40,13 @@ ImageObjectDatabase::ImageObjectDatabase(const char* fname){
       obj->setRoundness(stof(r));
       obj->setMinAngle(stof(minA));
       obj->setMinMoment(stof(minM));
+
+      obj->calculateOrientationLine();
     }
   }
   readf.close();
+
+  num_objects = objects.size();
 }
 
 int ImageObjectDatabase::writeDatabase(const char* fname){
