@@ -14,8 +14,10 @@ using namespace std;
 class Object{
 
 public:
-  Object(int l, int area=0, int xS=0, int yS=0, int xxS=0, int yyS=0, int xy=0)
+  Object(int l, int a=0, int xS=0, int yS=0, int xxS=0, int yyS=0, int xy=0)
         : label(l), area(a), xSum(xS), ySum(yS), xSqSum(xxS), ySqSum(yyS), xySum(xy){};
+
+  void updateXYProperties(int x, int y);
 
   int getLabel() const { return label; };
 
@@ -45,7 +47,7 @@ private:
   int area;
   int xSum, ySum;
   int xSqSum, ySqSum; 
-  int xy;
+  int xySum;
 };
 
 #endif
