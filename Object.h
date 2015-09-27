@@ -32,8 +32,10 @@ public:
 private:
   int label;
   float centerRow, centerCol;
-  float moment;
-  float orientation;
+  float min_moment, max_moment;
+  float min_angle, max_angle;
+  float roundness;
+  pair <float, float> orientation_line;
   int area;
   int xSum, ySum;
   int xSqSum, ySqSum; 
