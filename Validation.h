@@ -8,8 +8,12 @@
 using namespace std;
 
 // Returns true if char * is a decimal number
-bool isValidNumber(const char* str);
-bool isValidNumber(const string str);
+bool isFloat(const char* str);
+bool isFloat(const string str);
+
+// Returns true if char * is a decimal number
+bool isInt(const char* str);
+bool isInt(const string str);
 
 // Convert angle in radians to value between 0 and 2 PI
 float validRadians(float angle);
