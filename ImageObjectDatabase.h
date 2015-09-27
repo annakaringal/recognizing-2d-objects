@@ -24,7 +24,7 @@ public:
   ImageObjectDatabase(const char* fname);
 
   ~ImageObjectDatabase(){
-    for (int i=0; i<objects.size; i++){
+    for (int i=0; i<objects.size(); i++){
       delete objects[i];
     }
   }
