@@ -38,6 +38,10 @@ public:
 
   void calculateOrientation();
 
+  void calculateOrientationLine();
+
+  float calculateMoment(float a, float b, float c, float angle);
+
   void setCenter(float r, float c);
 
   void setArea(int a);

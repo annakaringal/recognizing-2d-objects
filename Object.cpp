@@ -27,11 +27,20 @@ void Object::calculateOrientation(){
   }
   max_angle = validRadians((PI / 2) + min_angle);
 
-  min_moment = (a*sin(min_angle)*sin(min_angle)) - (b*sin(min_angle)*cos(min_angle)) + (c*cos(min_angle)*cos(min_angle));
-  max_moment = (a*sin(max_angle)*sin(max_angle)) - (b*sin(max_angle)*cos(max_angle)) + (c*cos(max_angle)*cos(max_angle));
+  min_moment = calculateMoment(a, b, c, min_angle);
+  max_moment = calculateMoment(a, b, c, max_angle);
 
   roundness = min_moment / max_moment;
 
+  calculateOrientationLine();
+
+}
+
+float Object::calculateMoment(float a, float b, float c, float angle){
+  return (a*sin(angle)*sin(angle)) - (b*sin(angle)*cos(angle)) + (c*cos(angle)*cos(angle));
+}
+
+void Object::calculateOrientationLine(){
   orientation_line.first = (centerCol*cos(min_angle)) - (centerRow*sin(min_angle));
   orientation_line.second = min_angle;
 }
