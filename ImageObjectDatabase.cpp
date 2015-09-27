@@ -106,3 +106,13 @@ void ImageObjectDatabase::calculateObjectProperties(){
   }
 
 }
+
+int ImageObjectDatabase::hasMatch(Object* obj){
+  for (int i=1; i<=num_objects; i++){
+    if (obj->getArea() == getObject(i)->getArea() && 
+      fabs(obj->getRoundness() - getObject(i)->getRoundness()) < TOLERANCE){
+      return i;
+    }
+  }
+  return -1;
+}

@@ -5,10 +5,13 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <math.h>
 
 #include "pgm/Image.h"
 #include "Object.h"
 #include "Validation.h"
+
+#define TOLERANCE 0.00001
 
 using namespace std;
 
@@ -35,6 +38,8 @@ public:
   int writeDatabase(const char* fname);
 
   Object* getObject(int label) const { return objects[label-1]; };
+
+  int hasMatch(Object* obj);
 
 private:
   Image* img;
