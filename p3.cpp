@@ -35,6 +35,20 @@ int main(int argc, const char * argv[]) {
     Image* output_img(input_img);
 
     // Draw lines for each object
+    int num_objs = iodb.getNumObjects();
+    for (int i=1; i<= num_objs; i++){
+      Object* obj = iodb.getObject(i);
+
+      pair<float, float> center = obj->getCenter();
+      pair<float, float> orientation = obj->getOrientation();
+      float p = orientation.first;
+      float angle = orientation.second;
+
+      int endX = center.first + 20;
+      int endY = (endX * sin(angle) + p) / cos(angle);
+
+      line(output_img, center.first, center.second, endX, endY, 0);
+    }
 
     // Write output image to file
     if (writeImage(output_img, output_img_fname) < 0){
