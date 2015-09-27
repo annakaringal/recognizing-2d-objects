@@ -19,12 +19,12 @@ public:
 
   int writeDatabase(const char* fname);
 
-  Object* getObject(int label) const { return &objects[label-1]; };
+  Object* getObject(int label) const { return objects[label-1]; };
 
 private:
   Image* img;
   int num_objects;
-  Object* objects[num_objects];
+  vector<Object*> objects;
 
   void generateObjects();
 
