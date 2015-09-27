@@ -2,6 +2,7 @@
 
 #include "BinaryImage.h"
 #include "pgm/Image.h"
+#include "Validation.h"
 
 using namespace std;
 

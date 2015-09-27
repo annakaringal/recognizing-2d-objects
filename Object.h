@@ -6,6 +6,7 @@
 #include <math.h>
 
 #include "pgm/Image.h"
+#include "Validation.h"
 
 #define PI 3.14159265
 
@@ -37,6 +38,8 @@ public:
 
   void calculateOrientation();
 
+  int setCenter(int r, int c);
+
 private:
   int label;
   float centerRow, centerCol;
@@ -50,6 +53,5 @@ private:
   int xySum;
 };
 
-float validRadians(float angle);
 
 #endif

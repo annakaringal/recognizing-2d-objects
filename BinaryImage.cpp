@@ -7,16 +7,6 @@
 // #include "DisjointSet.h"
 using namespace std;
 
-bool isValidNumber(const char * str){
-  // Return false if non-numeric character or if char is not . or -
-  for (int i=0; i < strlen(str); i++){
-    if (!isdigit(str[i]) && str[i] != '.' && str[i] != '-') {
-      return false;
-    }
-  }
-  return true;
-}
-
 int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
   // Check if threshold is valid
   if (threshold > greyscale_img->getColors() || threshold < 0) { return -1; }
