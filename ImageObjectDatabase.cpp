@@ -19,8 +19,7 @@ void ImageObjectDatabase::generateObjects(){
   for (int i = 0; i < num_objects; i++){
     // Create new empty object and add to object array
     int label = i+1;
-    Object* obj(label);
-    objects[i] = &obj;
+    objects[i] = new Object(label);
   }
 
   calculateObjectProperties();
