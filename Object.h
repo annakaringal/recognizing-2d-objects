@@ -50,4 +50,6 @@ private:
   int xySum;
 };
 
+float validRadians(float angle);
+
 #endif
