@@ -33,6 +33,8 @@ public:
 
   pair<float,float> calculateCenter();
 
+  void calculateOrientation();
+
 private:
   int label;
   float centerRow, centerCol;
