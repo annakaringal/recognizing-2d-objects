@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 #include "pgm/Image.h"
 #include "Object.h"
