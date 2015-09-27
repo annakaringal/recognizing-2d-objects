@@ -13,16 +13,22 @@ class ImageObjectDatabase{
 
 public:
   ImageObjectDatabase(Image* labeled_img) : img (labeled_img) {
-    generateObjects(labeled_img);
+    num_objects = labeled_img->getColors();
+    generateObjects();
   };
 
   int writeDatabase(const char* fname);
 
+  Object* getObject(int label) const { return &objects[label-1]; };
+
 private:
   Image* img;
-  vector <Object> objects;
+  int num_objects;
+  Object* objects[num_objects];
 
-  void generateObjects(labeled_img);
+  void generateObjects();
+
+  void calculateObjectProperties();
 };
 
 #endif
