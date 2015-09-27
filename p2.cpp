@@ -33,5 +33,8 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
+    delete input_img;
+    delete labeled_img;
+
     return 0;
 }

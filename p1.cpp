@@ -41,5 +41,8 @@ int main(int argc, const char * argv[]) {
       exit(-1);
     }
 
+    delete input_img;
+    delete binary_img;
+
     return 0;
 }
