@@ -35,3 +35,16 @@ void Object::calculateOrientation(){
   orientation_line.first = (centerCol*cos(min_angle)) - (centerRow*sin(min_angle));
   orientation_line.second = min_angle;
 }
+
+void Object::setCenter(float r, float c){
+  centerRow = r; 
+  centerCol = c;
+}
+
+void Object::setArea(int a){ area = a; }
+
+void Object::setMinAngle(float minA){ min_angle = minA; }
+
+void Object::setMinMoment(float minM){ min_moment = minM; }
+
+void Object::setRoundness(float r){ roundness = r; }

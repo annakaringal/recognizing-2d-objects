@@ -38,7 +38,15 @@ public:
 
   void calculateOrientation();
 
-  int setCenter(int r, int c);
+  void setCenter(float r, float c);
+
+  void setArea(int a);
+
+  void setMinAngle(float minA);
+
+  void setMinMoment(float minM);
+
+  void setRoundness(float r);
 
 private:
   int label;
