@@ -1,12 +1,5 @@
 #include "Object.h"
 
-void Object::setArea(int a){ area = a; }
-
-void Object::setCenter(int r, int c){ 
-  centerRow = r; 
-  centerCol = c;
- };
-
 void Object::updateXYProperties(int x, int y){
   area++;
   xSum += x; 
