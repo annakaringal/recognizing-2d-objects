@@ -3,14 +3,15 @@
 int ImageObjectDatabase::writeDatabase(const char* fname){
   for (int i = 1; i <= num_objects; i++){
     Object* obj = getObject(i);
-    cout << "label: " << obj->getLabel() << " | ";
-    cout << "area: " << obj->getArea() << " | ";
-    cout << "p min: " << obj->getOrientation().first << " | ";
-    cout << "angle min: " << obj->getOrientation().second << " | ";
-    cout << "center r: " << obj->getCenter().first << " | ";
-    cout << "center c: " << obj->getCenter().second << " | ";
-    cout << "roundness: " << obj->getRoundness() << " | ";
-    cout << endl;
+    cout << "label: " << obj->getLabel() << endl;
+    cout << "area: " << obj->getArea() << endl;
+    cout << "p min: " << obj->getOrientation().first << endl;
+    cout << "angle min: " << obj->getOrientation().second << endl;
+    cout << "center r: " << obj->getCenter().first << endl;
+    cout << "center c: " << obj->getCenter().second << endl;
+    cout << "roundness: " << obj->getRoundness() << endl;
+    cout << "min moument: " << obj->getMinMoment() << endl;
+    cout << "-------" << endl;
   }
   return 0;
 }
