@@ -13,10 +13,16 @@ using namespace std;
 class ImageObjectDatabase{
 
 public:
+  // create image object database from image
   ImageObjectDatabase(Image* labeled_img) : img (labeled_img) {
     num_objects = labeled_img->getColors();
     generateObjects();
   };
+
+  // Read image object database from file
+  ImageObjectDatabase(const char* fname);
+
+  ~ImageObjectDatabase();
 
   int getNumObjects() const { return num_objects; };
 
