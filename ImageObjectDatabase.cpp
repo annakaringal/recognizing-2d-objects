@@ -32,7 +32,7 @@ void ImageObjectDatabase::calculateObjectProperties(){
 
   // Calculate center, orientation and moment for each obj
   for (int i=1; i<=num_objects; i++){
-    obj = getObject(label);
+    obj = getObject(i);
     obj->calculateCenter();
     obj->calculateOrientation();
   }
