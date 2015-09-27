@@ -16,7 +16,9 @@ int ImageObjectDatabase::writeDatabase(const char* fname){
       writef << obj->getCenter().first<< " ";
       writef << obj->getCenter().second<< " ";
       writef << obj->getMinMoment()<< " ";
-      writef << obj->getOrientation().second << "\n";
+      writef << obj->getOrientation().second << " ";
+      writef << obj->getArea() << " ";
+      writef << obj->getRoundness() << "\n";
     }
   }
   writef.close();
