@@ -1,11 +1,4 @@
-#include <iostream>
-#include <string.h>
-#include <vector>
-
 #include "BinaryImage.h"
-#include "pgm/Image.h"
-// #include "DisjointSet.h"
-using namespace std;
 
 int convertToBinary(Image* greyscale_img, Image* binary_img, int threshold){
   // Check if threshold is valid
