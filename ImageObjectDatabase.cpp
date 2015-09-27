@@ -12,6 +12,7 @@ int ImageObjectDatabase::writeDatabase(const char* fname){
     cout << "roundness: " << obj->getRoundness() << " | ";
     cout << endl;
   }
+  return 0;
 }
 
 void ImageObjectDatabase::generateObjects(){
