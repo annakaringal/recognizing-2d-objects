@@ -17,6 +17,8 @@ public:
     generateObjects();
   };
 
+  int getNumObjects() const { return num_objects; };
+
   int writeDatabase(const char* fname);
 
   Object* getObject(int label) const { return objects[label-1]; };
