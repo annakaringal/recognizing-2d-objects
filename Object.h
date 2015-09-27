@@ -18,11 +18,7 @@ public:
         : label(l), area(a), xSum(xS), ySum(yS), xSqSum(xxS), ySqSum(yyS), xySum(xy){};
 
   int getArea() const { return area; };
-
-  int getxSum() const { return xSum; };
-
-  int getySum() const { return ySum; };
-
+  
   pair<float,float> getCenter() const {
     return pair<float, float> (centerRow, centerCol);
   };
