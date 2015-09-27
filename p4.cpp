@@ -32,20 +32,25 @@ int main(int argc, const char * argv[]) {
     // Create output image as copy of input image
     Image* output_img(input_img);
 
-    // Draw lines for each object
+    // Check each object db image to see if there's a matching object in the input image
     int num_objs = objs_iodb.getNumObjects();
     for (int i=1; i<= num_objs; i++){
       Object* obj = objs_iodb.getObject(i);
+      int match_label = input_iodb.hasMatch(obj);
 
-      pair<float, float> center = obj->getCenter();
-      pair<float, float> orientation = obj->getOrientation();
-      float p = orientation.first;
-      float angle = orientation.second;
+      // If there's a match, draw the center orientation line
+      if (match_label > 0) {
+        Object* match_object = input_iodb.getObject(match_label);
+        pair<float, float> center = match_object->getCenter();
+        pair<float, float> orientation = match_object->getOrientation();
+        float p = orientation.first;
+        float angle = orientation.second;
 
-      int endX = center.first + 20;
-      int endY = (endX * sin(angle) + p) / cos(angle);
+        int endX = center.first + 20;
+        int endY = (endX * sin(angle) + p) / cos(angle);
 
-      line(output_img, center.first, center.second, endX, endY, 0);
+        line(output_img, center.first, center.second, endX, endY, 0);
+      }
     }
 
     // Write output image to file
