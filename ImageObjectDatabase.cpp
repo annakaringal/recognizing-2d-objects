@@ -1,18 +1,25 @@
 #include "ImageObjectDatabase.h"
 
 int ImageObjectDatabase::writeDatabase(const char* fname){
-  for (int i = 1; i <= num_objects; i++){
-    Object* obj = getObject(i);
-    cout << "label: " << obj->getLabel() << endl;
-    cout << "area: " << obj->getArea() << endl;
-    cout << "p min: " << obj->getOrientation().first << endl;
-    cout << "angle min: " << obj->getOrientation().second << endl;
-    cout << "center r: " << obj->getCenter().first << endl;
-    cout << "center c: " << obj->getCenter().second << endl;
-    cout << "roundness: " << obj->getRoundness() << endl;
-    cout << "min moument: " << obj->getMinMoment() << endl;
-    cout << "-------" << endl;
+
+  ofstream writef;
+  writef.open(fname);
+  // Return if fail to open file
+  if (writef.fail()) {
+    return -1;
   }
+  // Write image attributes to file
+  if (writef.is_open()) {
+    for (int i = 1; i <= num_objects; i++){
+      Object* obj = getObject(i);
+      writef << obj->getLabel() << " ";
+      writef << obj->getCenter().first<< " ";
+      writef << obj->getCenter().second<< " ";
+      writef << obj->getMinMoment()<< " ";
+      writef << obj->getOrientation().second << "\n";
+    }
+  }
+  writef.close();
   return 0;
 }
 
@@ -23,7 +30,6 @@ void ImageObjectDatabase::generateObjects(){
     int label = i+1;
     objects.push_back(new Object(label));
   }
-
   calculateObjectProperties();
 }
 
