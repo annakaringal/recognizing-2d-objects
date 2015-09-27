@@ -8,6 +8,7 @@
 
 #include "pgm/Image.h"
 #include "Object.h"
+#include "Validation.h"
 
 using namespace std;
 
