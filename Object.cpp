@@ -15,7 +15,7 @@ pair<float,float> Object::calculateCenter(){
   return pair<float,float> (centerRow, centerCol);
 }
 
-float Object::calculateOrientation(){
+void Object::calculateOrientation(){
   float a = xSqSum - (centerRow * centerRow * area);
   float b = xySum - (2 * centerRow * centerCol * area);
   float c = ySqSum - (centerCol * centerCol * area);
