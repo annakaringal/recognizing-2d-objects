@@ -22,7 +22,11 @@ public:
   // Read image object database from file
   ImageObjectDatabase(const char* fname);
 
-  ~ImageObjectDatabase();
+  ~ImageObjectDatabase(){
+    for (int i=0; i<objects.size; i++){
+      delete objects[i];
+    }
+  }
 
   int getNumObjects() const { return num_objects; };
 
