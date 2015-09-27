@@ -1,7 +1,17 @@
 #include "ImageObjectDatabase.h"
 
 int ImageObjectDatabase::writeDatabase(const char* fname){
-
+  for (int i = 1; i <= num_objects; i++){
+    obj = getObject(i);
+    cout << "label: " << obj->getLabel() << " | ";
+    cout << "area: " << obj->getArea() << " | ";
+    cout << "p min: " << obj->getOrientation().first << " | ";
+    cout << "angle min: " << obj->getOrientation().second << " | ";
+    cout << "center r: " << obj->getCenter().first << " | ";
+    cout << "center c: " << obj->getCenter().second << " | ";
+    cout << "roundness: " << obj->getRoundness() << " | ";
+    cout << endl;
+  }
 }
 
 void ImageObjectDatabase::generateObjects(){
