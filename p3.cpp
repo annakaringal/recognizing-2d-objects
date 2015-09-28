@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "ImageObjectDatabase.h"
 #include "pgm/Image.h"

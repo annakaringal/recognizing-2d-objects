@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 #include "ObjectLabeler.h"
 #include "pgm/Image.h"
