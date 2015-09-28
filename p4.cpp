@@ -44,6 +44,7 @@ int main(int argc, const char * argv[]) {
 
       // If there's a match, draw the center orientation line
       if (match_label > 0) {
+        cout << "Found a match for object " << obj->getLabel() << "!" << endl;
         Object* match_object = input_iodb.getObject(match_label);
         pair<float, float> center = match_object->getCenter();
         pair<float, float> orientation = match_object->getOrientation();
