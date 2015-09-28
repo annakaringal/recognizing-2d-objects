@@ -15,10 +15,8 @@ int main(int argc, const char * argv[]) {
     const char* output_img_fname = argv[2];
 
     // Read image from input file, label objects in image and write to output file
-    Image* input_img;
-    input_img = new Image;
-    Image* labeled_img;
-    labeled_img = new Image;
+    Image* input_img = new Image;
+    Image* labeled_img = new Image;
 
     if (readImage(input_img, input_img_fname) < 0) {
       cerr << "ERROR: Something went wrong reading the input image" << endl;
