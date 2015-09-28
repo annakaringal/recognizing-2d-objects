@@ -42,6 +42,8 @@ public:
 
   int hasMatch(Object* obj);
 
+  void addObject(Object* obj);
+
 private:
   Image* img;
   int num_objects;
