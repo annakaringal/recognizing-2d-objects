@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
     const char* output_img_fname = argv[3];
 
     // Check if threshold is valid int and set to variable
-    if (!isValidType<int, char*>(argv[2])){
+    if (!isValidType<int, const char*>(argv[2])){
       cerr << "ERROR: Invalid threshold number." << endl;
       exit(-1);
     }
