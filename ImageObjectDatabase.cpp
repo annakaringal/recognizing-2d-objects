@@ -26,9 +26,8 @@ int ImageObjectDatabase::writeDatabase(const char* fname){
 }
 
 void ImageObjectDatabase::generateObjects(){
-
-  for (int i = 0; i < num_objects; i++){
-    // Create new empty object and add to object array
+  // Create new empty object for each object in image and add to object array
+  for (int i = 0; i < img->getColors(); i++){
     int label = i+1;
     objects.push_back(new Object(label));
   }
