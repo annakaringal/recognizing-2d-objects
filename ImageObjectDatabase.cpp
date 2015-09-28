@@ -36,7 +36,6 @@ void ImageObjectDatabase::generateObjects(){
 }
 
 void ImageObjectDatabase::calculateObjectProperties(){
-
   // Scan image pixel by pixel
   // update properties of obj labelled at pixel
   for (int i=0; i<img->getNRows(); i++){
@@ -69,6 +68,7 @@ int ImageObjectDatabase::hasMatch(Object* obj){
 }
 
 void ImageObjectDatabase::addObject(Object* obj){
+  // add object to database and increment num of objects;
   objects.push_back(obj);
   num_objects++;
 }
@@ -77,6 +77,7 @@ int readDatabase(ImageObjectDatabase* iodb, const char* fname){
   ifstream readf;
   readf.open(fname);
 
+  // Return with error if opening file fails
   if (readf.fail()){
     return -1;
   }
@@ -108,6 +109,7 @@ int readDatabase(ImageObjectDatabase* iodb, const char* fname){
         return -1;
       }
 
+      // Set object attributes
       obj->setCenter(stof(cr),stof(cc));
       obj->setArea(stoi(a));
       obj->setRoundness(stof(r));
