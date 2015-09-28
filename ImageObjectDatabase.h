@@ -11,7 +11,8 @@
 #include "Object.h"
 #include "Validation.h"
 
-#define TOLERANCE 0.00001
+#define AREA_TOLERANCE_PERCENTAGE 0.15
+#define ROUNDNESS_TOLERANCE_PERCENTAGE 0.15
 
 using namespace std;
 
