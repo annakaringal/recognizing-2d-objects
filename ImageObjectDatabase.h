@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <math.h>
+#include <cstdlib>
 
 #include "pgm/Image.h"
 #include "Object.h"
