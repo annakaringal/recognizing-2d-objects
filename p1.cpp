@@ -16,19 +16,15 @@ int main(int argc, const char * argv[]) {
     const char* output_img_fname = argv[3];
 
     // Check if threshold is valid int and set to variable
-    int threshold;
-    if (isInt(argv[2])){
-      threshold = atoi(argv[2]);
-    } else {
+    if (!isInt(argv[2])){
       cerr << "ERROR: Invalid threshold number." << endl;
       exit(-1);
     }
+    int threshold = atoi(argv[2]);
 
     // Read image from input file, convert to binary and write to output file
-    Image* input_img;
-    Image* binary_img;
-    input_img = new Image;
-    binary_img = new Image;
+    Image* input_img = new Image;
+    Image* binary_img = new Image;
 
     if (readImage(input_img, input_img_fname) < 0) {
       cerr << "ERROR: Something went wrong reading the input image" << endl;
