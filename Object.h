@@ -31,8 +31,8 @@ public:
   // Precondition: full scan has been preformed to update xSum, ySum of object
   void calculateOrientation();
 
-  // Calculates orientation properties (min/max angle, min/max momentum, orientation line)
-  // and sets member variables
+  // Calculates orientation properties (min/max angle, min/max momentum, orientation line,
+  // roundness) and sets member variables
   // Precondition: full scan has been preformed to update/calculate xSqSum, ySqSum,
   // xySum and center coordinates.
   void calculateOrientationLine();
