@@ -90,16 +90,15 @@ int readDatabase(ImageObjectDatabase* iodb, const char* fname){
       string label_str;
       objss >> label_str;
       int label;
-      if (!isValidType<int, string>(label_str)){ throw -1; }
-    
+      if (!isValidType<int, string>(label_str)){ return -1; }
       label = stoi(label_str);
-      if (label != iodb->getNumObjects()+1){ throw -1; }
+      if (label != iodb->getNumObjects()+1){ return -1; }
 
       // Create new object with label and push to objects db
       Object *obj = new Object(label);
       iodb->addObject(obj);
 
-      // Get rest of attributes and check each for valid num
+      // Get rest of attributes and check if each is valid
       string cr, cc, minM, minA, a, r;
       objss >> cr >> cc >> minM >> minA >> a >> r;
 
