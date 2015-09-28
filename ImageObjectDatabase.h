@@ -24,8 +24,9 @@ public:
     generateObjects();
   };
 
-  // Read image object database from file
-  ImageObjectDatabase(const char* fname);
+  ImageObjectDatabase() { 
+    num_objects = 0;
+  };
 
   ~ImageObjectDatabase(){
     for (int i=0; i<objects.size(); i++){
@@ -50,5 +51,7 @@ private:
 
   void calculateObjectProperties();
 };
+
+int readDatabase(ImageObjectDatabase* iodb, const char* fname);
 
 #endif
