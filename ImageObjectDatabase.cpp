@@ -1,54 +1,5 @@
 #include "ImageObjectDatabase.h"
 
-// Construct from file
-ImageObjectDatabase::ImageObjectDatabase(const char* fname){
-  ifstream readf;
-  readf.open(fname);
-
-  if (readf.fail()){
-    throw -1;
-  }
-
-  if (readf.is_open()){
-    string obj_str;
-    while (getline(readf, obj_str)){
-      istringstream objss(obj_str);
-
-      // Get label, check if valid number and valid label
-      string label_str;
-      objss >> label_str;
-      int label;
-      if (!isInt(label_str)){ throw -1; }
-      label = stoi(label_str);
-      if (label != objects.size()+1){ throw -1; }
-
-      // Create new object with label and push to objects db
-      objects.push_back(new Object(label));
-
-      // Get rest of attributes and check each for valid num
-      string cr, cc, minM, minA, a, r;
-      objss >> cr >> cc >> minM >> minA >> a >> r;
-
-      if (!isFloat(cr) || !isFloat(cc) || !isFloat(minM) ||
-          !isFloat(minA) || !isInt(a) || !isFloat(r)){
-        throw -1;
-      }
-
-      Object* obj = getObject(label);
-      obj->setCenter(stof(cr),stof(cc));
-      obj->setArea(stoi(a));
-      obj->setRoundness(stof(r));
-      obj->setMinAngle(stof(minA));
-      obj->setMinMoment(stof(minM));
-
-      obj->calculateOrientationLine();
-    }
-  }
-  readf.close();
-
-  num_objects = objects.size();
-}
-
 int ImageObjectDatabase::writeDatabase(const char* fname){
 
   ofstream writef;
@@ -115,4 +66,58 @@ int ImageObjectDatabase::hasMatch(Object* obj){
     }
   }
   return -1;
+}
+
+void ImageObjectDatabase::addObject(Object* obj){
+  objects.push_back(obj);
+  num_objects++;
+}
+
+int readDatabase(ImageObjectDatabase* iodb, const char* fname){
+  ifstream readf;
+  readf.open(fname);
+
+  if (readf.fail()){
+    return -1;
+  }
+
+  if (readf.is_open()){
+    string obj_str;
+    while (getline(readf, obj_str)){
+      istringstream objss(obj_str);
+
+      // Get label, check if valid number and valid label
+      string label_str;
+      objss >> label_str;
+      int label;
+      if (!isInt(label_str)){ throw -1; }
+    
+      label = stoi(label_str);
+      if (label != iodb->getNumObjects()+1){ throw -1; }
+
+      // Create new object with label and push to objects db
+      Object *obj = new Object(label);
+      iodb->addObject(obj);
+
+      // Get rest of attributes and check each for valid num
+      string cr, cc, minM, minA, a, r;
+      objss >> cr >> cc >> minM >> minA >> a >> r;
+
+      // if (!isFloat(cr) || !isFloat(cc) || !isFloat(minM) ||
+      //     !isFloat(minA) || !isInt(a) || !isFloat(r)){
+      //   throw -1;
+      // }
+
+      obj->setCenter(stof(cr),stof(cc));
+      obj->setArea(stoi(a));
+      obj->setRoundness(stof(r));
+      obj->setMinAngle(stof(minA));
+      obj->setMinMoment(stof(minM));
+
+      obj->calculateOrientationLine();
+    }
+  }
+  readf.close();
+
+  return 0;
 }
