@@ -90,7 +90,7 @@ int readDatabase(ImageObjectDatabase* iodb, const char* fname){
       string label_str;
       objss >> label_str;
       int label;
-      if (!isInt(label_str)){ throw -1; }
+      if (!isValidType<int, string>(label_str)){ throw -1; }
     
       label = stoi(label_str);
       if (label != iodb->getNumObjects()+1){ throw -1; }
@@ -103,10 +103,10 @@ int readDatabase(ImageObjectDatabase* iodb, const char* fname){
       string cr, cc, minM, minA, a, r;
       objss >> cr >> cc >> minM >> minA >> a >> r;
 
-      // if (!isFloat(cr) || !isFloat(cc) || !isFloat(minM) ||
-      //     !isFloat(minA) || !isInt(a) || !isFloat(r)){
-      //   throw -1;
-      // }
+      if (!isValidType<float, string>(cr) || !isValidType<float, string>(cc) || !isValidType<float, string>(minM) ||
+          !isValidType<float, string>(minA) || !isValidType<int, string>(a) || !isValidType<float, string>(r)){
+        return -1;
+      }
 
       obj->setCenter(stof(cr),stof(cc));
       obj->setArea(stoi(a));
