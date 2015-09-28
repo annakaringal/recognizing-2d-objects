@@ -57,12 +57,43 @@ void ImageObjectDatabase::calculateObjectProperties(){
 }
 
 int ImageObjectDatabase::hasMatch(Object* obj){
+  // Calculate tolerance as percentage of image area/roundness
+  float area_tolerance = obj->getArea() * AREA_TOLERANCE_PERCENTAGE;
+  float roudness_tolerance = fabs(obj->getRoundness() * ROUNDNESS_TOLERANCE_PERCENTAGE);
+
+  // Push all matches within tolerance to 
+  vector<int> matches;
   for (int i=1; i<=num_objects; i++){
-    if (obj->getArea() == getObject(i)->getArea() && 
-      fabs(obj->getRoundness() - getObject(i)->getRoundness()) < TOLERANCE){
-      return i;
+    if (abs(obj->getArea() - getObject(i)->getArea()) <= area_tolerance && 
+      fabs(obj->getRoundness() - getObject(i)->getRoundness()) <= roudness_tolerance){
+      matches.push_back(i);
     }
   }
+
+  // if more than one match in within tolerance, find closest using mean square error
+  if (matches.size() > 1){
+    float mean_sq_error = (area_tolerance*area_tolerance) + (roudness_tolerance*roudness_tolerance);
+    int closest_match = -1;
+    for (int i=0; i<matches.size(); i++){
+      float area_diff = abs(obj->getArea() - getObject(i)->getArea());
+      float roundness_diff = fabs(obj->getRoundness() - getObject(i)->getRoundness());
+      float cur_mse = (area_diff*area_diff) + (roundness_diff*roundness_diff);
+      if (cur_mse < mean_sq_error) { 
+        mean_sq_error = cur_mse; 
+        closest_match = matches[i];
+      }
+      return closest_match;
+    }
+
+  // return a singular match
+  } else if (matches.size() == 1){
+    return matches[0];
+
+  // Return no matches
+  } else {
+    return -1;
+  }
+
   return -1;
 }
 
