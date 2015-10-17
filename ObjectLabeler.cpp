@@ -33,6 +33,8 @@ void ObjectLabeler::ScanAndLabel(Image* binary_img, Image* labeled_img){
             label_count++;
             labeled_img->setPixel(i,j,label_count);
 
+            AddToEquivalencyTable(label_count,label_count);
+
           // Only C has a label, current pixel gets C's label
           } else if (C > 0 && B == 0) {
             labeled_img->setPixel(i,j,C);
