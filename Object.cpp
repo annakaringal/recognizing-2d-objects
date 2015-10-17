@@ -10,8 +10,13 @@ void Object::updateXYProperties(int x, int y){
 };
 
 pair<float,float> Object::calculateCenter(){
-  centerRow = xSum / area;
-  centerCol = ySum / area;
+  if (area > 0) {
+    centerRow = xSum / area;
+    centerCol = ySum / area;
+  } else {
+    centerRow = 0;
+    centerCol = 0;
+  }
   return pair<float,float> (centerRow, centerCol);
 }
 
